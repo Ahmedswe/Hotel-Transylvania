@@ -1,8 +1,11 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+
 
 public class Hotel_transylvania extends JPanel {
 
@@ -11,6 +14,9 @@ public class Hotel_transylvania extends JPanel {
     private JButton view_guests = new JButton("View Guests");
     private JButton add_guest = new JButton("Add Guest");
     private JButton remove_guest = new JButton("Remove Guest");
+    private BufferedImage bg_img;
+    
+    
     private Room[] rooms = new Room[20];
     private ArrayList<Guest> guests = new ArrayList<Guest>();
 
@@ -31,6 +37,8 @@ public class Hotel_transylvania extends JPanel {
         try {
             BufferedReader roomReader = new BufferedReader(new FileReader("rooms.txt"));
             BufferedReader guestReader = new BufferedReader(new FileReader("guests.txt"));
+            bg_img = ImageIO.read(new File("WhatsApp Image 2024-08-22 at 08.35.41_6e0ea06e.jpg"));
+
             String room_data;
             String guest_data;
             int room_index = 0;
@@ -72,6 +80,15 @@ public class Hotel_transylvania extends JPanel {
     }
 
 
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        if (bg_img != null) {
+            g.drawImage(bg_img, 0, 0, getWidth(), getHeight(), this);
+        } else {
+            System.out.println("Image is null");
+        }
+    }
 
 
     public void setframe(JFrame frame, int width, int height) {

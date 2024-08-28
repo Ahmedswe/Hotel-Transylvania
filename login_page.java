@@ -1,5 +1,5 @@
 import javax.imageio.ImageIO;
-import javax.swing.*;
+import javax.swing.* ;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -49,7 +49,7 @@ public class login_page extends JPanel implements ActionListener {
 
         login_btn.setBounds((size[0] / 2) - 50, (int) (size[1] / 2), 100, 30);
 
-        
+    
         error_msg.setFont(boldFont);
         error_msg.setForeground(Color.red);
         error_msg.setBounds(size[0]/2-90, (int) (size[1] / 1.7), 200 ,30);
